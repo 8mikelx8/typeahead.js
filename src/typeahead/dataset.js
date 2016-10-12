@@ -268,10 +268,10 @@ var Dataset = (function() {
         // if the update has been canceled or if the query has changed
         // do not render the suggestions as they've become outdated
         if (!canceled && rendered < that.limit) {
-          that.cancel = $.noop;
-          rendered += suggestions.length;
+          that.cancel = $.noop;          
           that._append(query, suggestions.slice(0, that.limit - rendered));
-
+          rendered += suggestions.length;
+          
           that.async && that.trigger('asyncReceived', query);
         }
       }
